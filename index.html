@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>广西轻养生草药文创</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 自定义样式 */
+        body { font-family: 'Arial', sans-serif; }
+        .nav-link { transition: all 0.3s; }
+        .nav-link:hover { color: #16a34a; }
+        .card { transition: transform 0.3s; }
+        .card:hover { transform: translateY(-5px); }
+        /* 套餐卡片渐变背景 */
+        .gradient-purple { background: linear-gradient(135deg, #e9d5ff, #f3e8ff); }
+        .gradient-green { background: linear-gradient(135deg, #d1fae5, #ecfdf5); }
+        /* 产品图片样式 */
+        .product-img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body class="bg-green-50 text-gray-800">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-2xl font-bold text-green-600">广西轻养生草药文创</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-gray-700" onclick="showSection('home')">首页</a>
+                    <a href="#ai-recommend" class="nav-link text-gray-700" onclick="showSection('ai-recommend')">AI推荐</a>
+                    <a href="#gift-zone" class="nav-link text-gray-700" onclick="showSection('gift-zone')">送礼专区</a>
+                    <a href="#partner" class="nav-link text-gray-700" onclick="showSection('partner')">校园合伙人</a>
+                </div>
+                <div class="md:hidden">
+                    <button onclick="toggleMenu()" class="text-gray-700"><i class="fas fa-bars"></i></button>
+                </div>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="#home" class="block py-2 nav-link text-gray-700" onclick="showSection('home')">首页</a>
+                <a href="#ai-recommend" class="block py-2 nav-link text-gray-700" onclick="showSection('ai-recommend')">AI推荐</a>
+                <a href="#gift-zone" class="block py-2 nav-link text-gray-700" onclick="showSection('gift-zone')">送礼专区</a>
+                <a href="#partner" class="block py-2 nav-link text-gray-700" onclick="showSection('partner')">校园合伙人</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- 首页 -->
+        <section id="home" class="section">
+            <h1 class="text-3xl font-bold text-center mb-8 text-green-700">轻养生草药文创产品</h1>
+            <!-- 限定组合·送礼更贴心 -->
+            <div class="mb-12">
+                <h2 class="text-2xl font-bold text-center mb-6 text-green-600">限定组合·送礼更贴心</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- 熬夜回血包 -->
+                    <div class="card gradient-purple rounded-lg shadow-md p-6 text-center">
+                        <h3 class="text-xl font-semibold mb-2">熬夜回血包</h3>
+                        <p class="text-gray-700 mb-4">桑葚熬夜茶 + 艾草蒸汽眼罩</p>
+                        <p class="text-gray-500 line-through">原价 ¥71</p>
+                        <p class="text-purple-600 font-bold text-lg">套餐价 ¥65 <span class="text-red-500">省6元</span></p>
+                        <button onclick="addToCart('熬夜回血包')" class="mt-4 bg-purple-600 text-white py-2 px-4 rounded hover:bg-purple-700">加入礼物车</button>
+                    </div>
+                    <!-- 换季护嗓包 -->
+                    <div class="card gradient-green rounded-lg shadow-md p-6 text-center">
+                        <h3 class="text-xl font-semibold mb-2">换季护嗓包</h3>
+                        <p class="text-gray-700 mb-4">桂花润喉茶 + 罗汉果清润饮</p>
+                        <p class="text-gray-500 line-through">原价 ¥60</p>
+                        <p class="text-green-600 font-bold text-lg">套餐价 ¥55 <span class="text-red-500">省5元</span></p>
+                        <button onclick="addToCart('换季护嗓包')" class="mt-4 bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700">加入礼物车</button>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 产品卡片 -->
+                <div class="card bg-white rounded-lg shadow-md p-6">
+                    <img src="images/guihua-tea.jpg" alt="桂花润喉茶" class="product-img rounded-md mb-4" loading="lazy">
+                    <h3 class="text-xl font-semibold mb-2">桂花润喉茶</h3>
+                    <p class="text-gray-600 mb-4">缓解喉咙干痒，清新口气</p>
+                    <p class="text-green-600 font-bold">¥28</p>
+                </div>
+                <div class="card bg-white rounded-lg shadow-md p-6">
+                    <img src="images/luohanguo-drink.jpg" alt="罗汉果清润饮" class="product-img rounded-md mb-4" loading="lazy">
+                    <h3 class="text-xl font-semibold mb-2">罗汉果清润饮</h3>
+                    <p class="text-gray-600 mb-4">清热润肺，缓解咳嗽</p>
+                    <p class="text-green-600 font-bold">¥32</p>
+                </div>
+                <div class="card bg-white rounded-lg shadow-md p-6">
+                    <img src="images/aicao-mask.jpg" alt="艾草蒸汽眼罩" class="product-img rounded-md mb-4" loading="lazy">
+                    <h3 class="text-xl font-semibold mb-2">艾草蒸汽眼罩</h3>
+                    <p class="text-gray-600 mb-4">缓解眼部疲劳，促进睡眠</p>
+                    <p class="text-green-600 font-bold">¥39</p>
+                </div>
+                <div class="card bg-white rounded-lg shadow-md p-6">
+                    <img src="images/zhuangjin-sachet.jpg" alt="壮锦香囊" class="product-img rounded-md mb-4" loading="lazy">
+                    <h3 class="text-xl font-semibold mb-2">壮锦香囊</h3>
+                    <p class="text-gray-600 mb-4">驱蚊防虫，天然香气</p>
+                    <p class="text-green-600 font-bold">¥45</p>
+                </div>
+                <div class="card bg-white rounded-lg shadow-md p-6">
+                    <img src="images/jinxiu-bath.jpg" alt="金秀瑶浴包" class="product-img rounded-md mb-4" loading="lazy">
+                    <h3 class="text-xl font-semibold mb-2">金秀瑶浴包</h3>
+                    <p class="text-gray-600 mb-4">舒缓肌肤，放松身心</p>
+                    <p class="text-green-600 font-bold">¥48</p>
+                </div>
+                <div class="card bg-white rounded-lg shadow-md p-6">
+                    <img src="images/sangshen-tea.jpg" alt="桑葚熬夜茶" class="product-img rounded-md mb-4" loading="lazy">
+                    <h3 class="text-xl font-semibold mb-2">桑葚熬夜茶</h3>
+                    <p class="text-gray-600 mb-4">养肝明目，缓解熬夜疲劳</p>
+                    <p class="text-green-600 font-bold">¥32</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI推荐 -->
+        <section id="ai-recommend" class="section hidden">
+            <h1 class="text-3xl font-bold text-center mb-8 text-green-700">AI智能推荐</h1>
+            <div class="max-w-md mx-auto bg-white rounded-lg shadow-md p-6">
+                <form id="recommend-form">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2">经常熬夜吗？</label>
+                        <select class="w-full p-2 border rounded" name="q1">
+                            <option value="no">否</option>
+                            <option value="yes">是</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2">眼睛干涩吗？</label>
+                        <select class="w-full p-2 border rounded" name="q2">
+                            <option value="no">否</option>
+                            <option value="yes">是</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2">喉咙不舒服吗？</label>
+                        <select class="w-full p-2 border rounded" name="q3">
+                            <option value="no">否</option>
+                            <option value="yes">是</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2">空调房待得久吗？</label>
+                        <select class="w-full p-2 border rounded" name="q4">
+                            <option value="no">否</option>
+                            <option value="yes">是</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700">获取推荐</button>
+                </form>
+                <div id="recommendations" class="mt-6 hidden">
+                    <h2 class="text-xl font-semibold mb-4">为您推荐：</h2>
+                    <div id="rec-list"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 送礼专区 -->
+        <section id="gift-zone" class="section hidden">
+            <h1 class="text-3xl font-bold text-center mb-8 text-green-700">送礼专区</h1>
+            <div class="space-y-8">
+                <div>
+                    <h2 class="text-2xl font-semibold mb-4">送室友</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="card bg-white rounded-lg shadow-md p-4">
+                            <img src="https://via.placeholder.com/200x150?text=桂花润喉茶" alt="桂花润喉茶" class="w-full h-32 object-cover rounded-md mb-2">
+                            <h3 class="font-semibold">桂花润喉茶</h3>
+                            <p class="text-gray-600">缓解喉咙干痒</p>
+                        </div>
+                        <div class="card bg-white rounded-lg shadow-md p-4">
+                            <img src="https://via.placeholder.com/200x150?text=桑葚熬夜茶" alt="桑葚熬夜茶" class="w-full h-32 object-cover rounded-md mb-2">
+                            <h3 class="font-semibold">桑葚熬夜茶</h3>
+                            <p class="text-gray-600">缓解熬夜疲劳</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-semibold mb-4">送老师</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="card bg-white rounded-lg shadow-md p-4">
+                            <img src="https://via.placeholder.com/200x150?text=罗汉果清润饮" alt="罗汉果清润饮" class="w-full h-32 object-cover rounded-md mb-2">
+                            <h3 class="font-semibold">罗汉果清润饮</h3>
+                            <p class="text-gray-600">清热润肺</p>
+                        </div>
+                        <div class="card bg-white rounded-lg shadow-md p-4">
+                            <img src="https://via.placeholder.com/200x150?text=金秀瑶浴包" alt="金秀瑶浴包" class="w-full h-32 object-cover rounded-md mb-2">
+                            <h3 class="font-semibold">金秀瑶浴包</h3>
+                            <p class="text-gray-600">放松身心</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-semibold mb-4">送社团成员</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="card bg-white rounded-lg shadow-md p-4">
+                            <img src="https://via.placeholder.com/200x150?text=艾草蒸汽眼罩" alt="艾草蒸汽眼罩" class="w-full h-32 object-cover rounded-md mb-2">
+                            <h3 class="font-semibold">艾草蒸汽眼罩</h3>
+                            <p class="text-gray-600">缓解眼部疲劳</p>
+                        </div>
+                        <div class="card bg-white rounded-lg shadow-md p-4">
+                            <img src="https://via.placeholder.com/200x150?text=壮锦香囊" alt="壮锦香囊" class="w-full h-32 object-cover rounded-md mb-2">
+                            <h3 class="font-semibold">壮锦香囊</h3>
+                            <p class="text-gray-600">驱蚊防虫</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 精选组合·更有心意 -->
+                <div>
+                    <h2 class="text-2xl font-semibold mb-4">精选组合·更有心意</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="card bg-white rounded-lg shadow-md p-4 text-center">
+                            <h3 class="font-semibold mb-2">熬夜回血包</h3>
+                            <p class="text-gray-600 mb-2">桑葚熬夜茶 + 艾草蒸汽眼罩</p>
+                            <p class="text-gray-500 line-through">原价 ¥71</p>
+                            <p class="text-green-600 font-bold">套餐价 ¥65</p>
+                        </div>
+                        <div class="card bg-white rounded-lg shadow-md p-4 text-center">
+                            <h3 class="font-semibold mb-2">换季护嗓包</h3>
+                            <p class="text-gray-600 mb-2">桂花润喉茶 + 罗汉果清润饮</p>
+                            <p class="text-gray-500 line-through">原价 ¥60</p>
+                            <p class="text-green-600 font-bold">套餐价 ¥55</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 校园合伙人 -->
+        <section id="partner" class="section hidden">
+            <h1 class="text-3xl font-bold text-center mb-8 text-green-700">校园合伙人招募</h1>
+            <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-md p-6">
+                <p class="text-gray-700 mb-4">加入广西轻养生草药文创校园合伙人计划，与我们一起推广健康生活方式！</p>
+                <ul class="list-disc list-inside mb-4">
+                    <li>提供产品样品和宣传资料</li>
+                    <li>享受专属折扣和佣金</li>
+                    <li>参与线上线下活动</li>
+                    <li>获得品牌培训支持</li>
+                </ul>
+                <p class="text-gray-700 mb-4">联系我们：</p>
+                <p><i class="fas fa-envelope mr-2"></i>partner@guangxiherbal.com</p>
+                <p><i class="fas fa-phone mr-2"></i>400-123-4567</p>
+                <p><i class="fab fa-wechat mr-2"></i>微信公众号：广西轻养生</p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // 导航切换
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(section => section.classList.add('hidden'));
+            document.getElementById(sectionId).classList.remove('hidden');
+            // 关闭移动菜单
+            document.getElementById('mobile-menu').classList.add('hidden');
+        }
+
+        // 移动菜单切换
+        function toggleMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        // 加入礼物车提示
+        function addToCart(packageName) {
+            alert(`🎉 已加入礼物清单（演示版）`);
+        }
+
+        // AI推荐逻辑
+        document.getElementById('recommend-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const answers = {
+                q1: formData.get('q1'),
+                q2: formData.get('q2'),
+                q3: formData.get('q3'),
+                q4: formData.get('q4')
+            };
+
+            let recommendations = [];
+            let bundleRec = '';
+
+            // 套餐推荐逻辑
+            if (answers.q1 === 'yes' && answers.q2 === 'yes') {
+                bundleRec = '💡 推荐套餐：熬夜回血包（桑葚熬夜茶+艾草蒸汽眼罩）仅需65元，省6元！';
+            } else if (answers.q3 === 'yes') {
+                bundleRec = '💡 推荐套餐：换季护嗓包（桂花润喉茶+罗汉果清润饮）仅需55元，省5元！';
+            }
+
+            // 单个产品推荐
+            if (answers.q1 === 'yes') recommendations.push('桑葚熬夜茶');
+            if (answers.q2 === 'yes') recommendations.push('艾草蒸汽眼罩');
+            if (answers.q3 === 'yes') recommendations.push('桂花润喉茶', '罗汉果清润饮');
+            if (answers.q4 === 'yes') recommendations.push('金秀瑶浴包');
+
+            if (recommendations.length === 0) recommendations = ['壮锦香囊']; // 默认推荐
+
+            const recList = document.getElementById('rec-list');
+            let html = '';
+            if (bundleRec) html += `<p class="text-blue-600 font-semibold mb-2">${bundleRec}</p>`;
+            html += recommendations.map(name => `<p class="text-green-600 font-semibold">${name}</p>`).join('');
+            recList.innerHTML = html;
+            document.getElementById('recommendations').classList.remove('hidden');
+        });
+
+        // 默认显示首页
+        showSection('home');
+    </script>
+</body>
+</html>
